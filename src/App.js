@@ -1,8 +1,8 @@
 import "./App.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// import About from "./components/About";
-// import Faqs from "./components/Faqs";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import About from "./components/About";
+import Faqs from "./components/Faqs";
 
 export default function App() {
   return (
@@ -52,7 +52,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      {/* <About /> */}
+      <About />
       <div className="mt-5 mb-5">
         <h4 className="mb-3 text-center">Why Dairy Farmers Trust Us:</h4>
         <p className="mb-3 text-center">
@@ -64,7 +64,7 @@ export default function App() {
           - <em>Sarah M., Dairy Farmer</em>
         </p>
       </div>
-      {/* <Faqs /> */}
+      <Faqs />
       <div className="mt-5 mb-5">
         <h4 className="mb-3 text-center">Get Started Today</h4>
         <p className="mb-3 text-center">
