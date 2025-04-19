@@ -1,10 +1,10 @@
 export default function About() {
   return (
-    <section className="row mt-5 mb-5">
-      <div className="col-md-3">
-        <h4 className="mb-3">About DairyCredit</h4>
+    <section className="about container my-5">
+      <div>
+        <h4 className="mb-3 text-center">About DairyCredit</h4>
       </div>
-      <div className="col-md-9">
+      <div>
         <p>
           <strong>DairyCredit</strong> revolutionizes financial access for dairy
           farmers through data-driven credit assessment. We understand that
