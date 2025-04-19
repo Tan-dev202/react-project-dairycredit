@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
+import logo from "../assets/dairy-cow-white.png";
 
 export default function NavBar({ darkMode, toggleDarkMode }) {
   return (
-    <nav className="bg-light navbar fixed-top navbar-expand-lg navbar-light">
+    <nav className="bg-dark text-light navbar sticky-top navbar-expand-lg navbar-dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand fw-bold" to="/">
-          <img src="../assets/dairy-cow.ico" alt="logo" className="logo" />{" "}
-          DairyCredit
+          <img src={logo} alt="logo" className="logo" /> DairyCredit
         </NavLink>
         <button
           type="button"
