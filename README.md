@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# DairyCredit: Alternative Credit Scoring Platform for Dairy Farmers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<ins>**Project Overview**
 
-## Available Scripts
+DairyCredit is a web application that helps assess credit scores for dairy farmers based on their financial data. It addresses credit risk assessment challenge due to the lack of farmer credit history and collateral. By developing an alternative credit scoring system lenders will assess the credit score of dairy farmers using non-traditional data points.
 
-In the project directory, you can run:
+<ins>**Core Features (MVPs)**
 
-### `npm start`
+- Farmer financial data management system
+- Real-time credit score calculation and grading
+- Visual representation of top performers via pie chart
+- Client-side routing for seamless navigation
+- Contact form for user inquiries
+- Dark/light mode toggle for enhanced user experience
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<ins>**Credit Score Calculation**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Cost to Sales Ratio: 
+  >(Monthly Costs / Monthly Sales) * 100
+- Liabilities to Assets Ratio: 
+  >(Current Liabilities / Farm Asset Value) * 100
+- Average Ratio: 
+  >(Cost-to-Sales Ratio + Liabilities-to-Assets Ratio) / 2
+- Credit Score Grading:
+  + Average Ratio < 49: High Score (100 - Average Ratio)
+  + Average Ratio 50-69: Medium Score (100 - Average Ratio)
+  + Average Ratio 70+: >Low Score (100 - Average Ratio)
 
-### `npm test`
+<ins>**Functionalities**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] Add and edit farmer records
+- [x] Search farmers by name or location
+- [x] Toggle dark/light mode
+- [x] Real-time credit score calculation
+- [x] Visual analytics of top performers
+- [x] Financial literacy content via FAQs
+- [x] User feedback submission system
 
-### `npm run build`
+[GitHub Pages](https://tan-dev202.github.io/react-project-dairycredit/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Netlify](https://tandev-react-project-dairycredit.netlify.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# How to Run the Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository
+2. Install dependencies: **npm install**
+3. Start the JSON server: **npx json-server db.json --port 4000**
+4. Start the React app: **npm start**
 
-### `npm run eject`
+## Author
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enock Tangus
