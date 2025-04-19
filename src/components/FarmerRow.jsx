@@ -1,6 +1,6 @@
 import { calculateCreditScore } from "../utils/creditScoreUtils";
 
-export default function FarmerRow({ farmer, deleteFarmer }) {
+export default function FarmerRow({ farmer, deleteFarmer, editFarmer }) {
   const {
     creditScore,
     scoreClass,
@@ -25,12 +25,20 @@ export default function FarmerRow({ farmer, deleteFarmer }) {
       <td>{averageRatio.toFixed(2)}%</td>
       <td className={scoreClass}>{creditScore} pts</td>
       <td>
-        <button
-          className="delete-btn btn btn-sm btn-danger rounded"
-          onClick={() => deleteFarmer(farmer.id)}
-        >
-          x
-        </button>
+        <div className="btn-group btn-group-sm gap-1">
+          <button
+            className="edit-btn btn btn-sm btn-primary rounded"
+            onClick={() => editFarmer(farmer)}
+          >
+            Edit
+          </button>
+          <button
+            className="delete-btn btn btn-sm btn-danger rounded"
+            onClick={() => deleteFarmer(farmer.id)}
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   );

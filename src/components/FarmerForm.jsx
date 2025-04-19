@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function FarmerForm({ addOrUpdateFarmer }) {
+export default function FarmerForm({
+  addOrUpdateFarmer,
+  farmerToEdit,
+  setFarmerToEdit,
+}) {
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -9,8 +13,19 @@ export default function FarmerForm({ addOrUpdateFarmer }) {
     farmAssetValue: "",
     currentLiabilities: "",
   });
-  const [editMode, setEditMode] = useState(false);
-  const [farmerId, setFarmerId] = useState(null);
+
+  useEffect(() => {
+    if (farmerToEdit) {
+      setFormData({
+        name: farmerToEdit.name,
+        location: farmerToEdit.location,
+        monthlySales: farmerToEdit.monthlySales,
+        monthlyCosts: farmerToEdit.monthlyCosts,
+        farmAssetValue: farmerToEdit.farmAssetValue,
+        currentLiabilities: farmerToEdit.currentLiabilities,
+      });
+    }
+  }, [farmerToEdit]);
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -29,7 +44,9 @@ export default function FarmerForm({ addOrUpdateFarmer }) {
       currentLiabilities: Number(formData.currentLiabilities),
     };
 
-    addOrUpdateFarmer(newFarmer, editMode ? farmerId : null);
+    const farmerId = farmerToEdit ? farmerToEdit.id : null;
+    addOrUpdateFarmer(newFarmer, farmerId);
+
     resetForm();
   };
 
@@ -42,12 +59,14 @@ export default function FarmerForm({ addOrUpdateFarmer }) {
       farmAssetValue: "",
       currentLiabilities: "",
     });
-    setEditMode(false);
-    setFarmerId(null);
+
+    if (setFarmerToEdit) {
+      setFarmerToEdit(null);
+    }
   };
 
   return (
-    <div className="details form-group my-5 justify-content-center">
+    <div className="details form-group my-4 justify-content-center">
       <h4 id="Farmers Data">Farmer Details</h4>
       <form id="farmer-form" onSubmit={handleSubmit}>
         <input
@@ -109,9 +128,9 @@ export default function FarmerForm({ addOrUpdateFarmer }) {
             type="submit"
             className="btn bg-success text-white rounded-pill me-2"
           >
-            {editMode ? "Update Farmer" : "Add Farmer"}
+            {farmerToEdit ? "Save" : "Add"}
           </button>
-          {editMode && (
+          {farmerToEdit && (
             <button
               type="button"
               className="btn bg-secondary text-white rounded-pill"
