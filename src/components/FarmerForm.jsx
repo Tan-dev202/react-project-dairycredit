@@ -67,12 +67,14 @@ export default function FarmerForm({
 
   return (
     <div className="details form-group my-4 justify-content-center">
-      <h4 id="Farmers Data">Farmer Details</h4>
+      <h5 id="Farmers Data" className="text-center">
+        Farmer Details
+      </h5>
       <form id="farmer-form" onSubmit={handleSubmit}>
         <input
           type="text"
           id="name"
-          className="form-control m-2"
+          className="form-control my-2"
           placeholder="Enter name"
           value={formData.name}
           onChange={handleChange}
@@ -81,7 +83,7 @@ export default function FarmerForm({
         <input
           type="text"
           id="location"
-          className="form-control m-2"
+          className="form-control my-2"
           placeholder="Enter location"
           value={formData.location}
           onChange={handleChange}
@@ -90,7 +92,7 @@ export default function FarmerForm({
         <input
           type="number"
           id="monthlySales"
-          className="form-control m-2"
+          className="form-control my-2"
           placeholder="Enter monthly sales"
           value={formData.monthlySales}
           onChange={handleChange}
@@ -99,7 +101,7 @@ export default function FarmerForm({
         <input
           type="number"
           id="monthlyCosts"
-          className="form-control m-2"
+          className="form-control my-2"
           placeholder="Enter monthly costs"
           value={formData.monthlyCosts}
           onChange={handleChange}
@@ -108,7 +110,7 @@ export default function FarmerForm({
         <input
           type="number"
           id="farmAssetValue"
-          className="form-control m-2"
+          className="form-control my2"
           placeholder="Enter farm asset value"
           value={formData.farmAssetValue}
           onChange={handleChange}
@@ -117,23 +119,23 @@ export default function FarmerForm({
         <input
           type="number"
           id="currentLiabilities"
-          className="form-control m-2"
+          className="form-control my-2"
           placeholder="Enter current liabilities"
           value={formData.currentLiabilities}
           onChange={handleChange}
           required
         />
-        <div className="d-flex">
+        <div className="d-grid mx-auto">
           <button
             type="submit"
-            className="btn bg-success text-white rounded-pill me-2"
+            className="btn bg-dark text-white rounded my-2"
           >
             {farmerToEdit ? "Save" : "Add"}
           </button>
           {farmerToEdit && (
             <button
               type="button"
-              className="btn bg-secondary text-white rounded-pill"
+              className="btn bg-secondary text-white rounded my-2"
               onClick={resetForm}
             >
               Cancel
