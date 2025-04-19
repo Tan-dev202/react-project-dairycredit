@@ -1,10 +1,10 @@
 export default function Faqs() {
   return (
-    <section class="row mt-5 mb-5" id="faqs">
-      <div className="col-md-3">
-        <h4 className="mb-3">Frequently Asked Questions (FAQs)</h4>
+    <section class="faqs container my-5" id="faqs">
+      <div>
+        <h4 className="text-center mb-3">Frequently Asked Questions (FAQs)</h4>
       </div>
-      <div class="accordion col-md-9">
+      <div class="accordion">
         <div class="accordion-item">
           <h6 class="accordion-header" id="panelsStayOpen-headingOne">
             <button
