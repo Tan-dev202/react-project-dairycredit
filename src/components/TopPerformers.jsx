@@ -40,8 +40,9 @@ export default function TopPerformers({ farmers }) {
   return (
     <section id="top-performers" className="top-performers my-5">
       <div className="container">
-        <h4 id="Top Performers">Top 5 Performers</h4>
-
+        <h4 id="Top Performers" className="text-center mb-3">
+          Top Performers
+        </h4>
         <div className="row">
           <div className="col-md-6">
             <div className="chart-container" style={{ height: 400 }}>
@@ -77,10 +78,8 @@ export default function TopPerformers({ farmers }) {
               </ResponsiveContainer>
             </div>
           </div>
-
-          <div className="col-md-6">
+          <div className="col-md-6 mt-5">
             <div className="top-performers-details">
-              <h5>Performer Details</h5>
               <div className="table-responsive">
                 <table className="table">
                   <thead>
@@ -88,7 +87,7 @@ export default function TopPerformers({ farmers }) {
                       <th>Rank</th>
                       <th>Name</th>
                       <th>Location</th>
-                      <th>Credit Score</th>
+                      <th>Credit Score (points)</th>
                       <th>Monthly Sales</th>
                     </tr>
                   </thead>
@@ -99,7 +98,7 @@ export default function TopPerformers({ farmers }) {
                         <td>{farmer.name}</td>
                         <td>{farmer.location}</td>
                         <td className={farmer.scoreClass}>
-                          {farmer.creditScore} pts
+                          {farmer.creditScore.toFixed(2)}
                         </td>
                         <td>Ksh. {farmer.monthlySales}</td>
                       </tr>
