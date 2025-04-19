@@ -1,4 +1,5 @@
-export default function FarmersTable({ isLoading }) {
+import FarmerRow from "./FarmerRow";
+export default function FarmersTable({ farmers, isLoading, deleteFarmer }) {
   if (isLoading) {
     return <div className="text-center mt-4">Loading farmer data...</div>;
   }
@@ -21,7 +22,21 @@ export default function FarmersTable({ isLoading }) {
           </tr>
         </thead>
         <tbody id="farmers-tbody">
-          
+          {farmers.length > 0 ? (
+            farmers.map((farmer) => (
+              <FarmerRow
+                key={farmer.id}
+                farmer={farmer}
+                deleteFarmer={deleteFarmer}
+              />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="9" className="text-center">
+                No farmers found
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
