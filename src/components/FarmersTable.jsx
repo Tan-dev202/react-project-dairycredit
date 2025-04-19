@@ -6,21 +6,20 @@ export default function FarmersTable({ farmers, isLoading, deleteFarmer, editFar
 
   return (
     <div className="table-responsive mt-0">
-      <h4 id="Credit Scores" className="text-center">Credit Scores</h4>
-      <div className="search-container d-flex mb-0">
+      <div className="search-container d-flex my-4">
         <input
           id="farmer-search"
           type="search"
-          className="form-control search-input"
+          className="form-control search-input rounded"
           style={{ width: "300px" }}
           placeholder="Search by name or location"
           value={searchTerm}
           onChange={(event) => handleSearch(event.target.value)}
         />
       </div>
-      <table id="farmers-table" className="table bg-light table-hover">
+      <table id="farmers-table" className="table bg-light table-responsive table-hover">
         <thead>
-          <tr>
+          <tr className="align-top">
             <th>Name</th>
             <th>Location</th>
             <th>Monthly Sales</th>
