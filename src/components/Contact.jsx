@@ -33,10 +33,10 @@ export default function Contact() {
   };
 
   return (
-    <section className="container my-5">
+    <section className="contact container my-5">
       <div className="row">
         <div className="col-lg-8 mx-auto">
-          <h4 className="mb-4">Contact Us</h4>
+          <h4 className="text-center mb-4">Contact Us</h4>
 
           {submitted && (
             <div className="alert alert-success" role="alert">
@@ -106,16 +106,17 @@ export default function Contact() {
                     required
                   ></textarea>
                 </div>
-
-                <button
-                  type="submit"
-                  className="btn bg-success text-white rounded-pill"
-                >
-                  Send Message
-                </button>
+                <div class="d-grid gap-2 col-1 mx-auto">
+                  <button
+                    type="submit"
+                    className="btn bg-dark text-white rounded"
+                  >
+                    Send
+                  </button>
+                </div>
               </form>
 
-              <div className="mt-5">
+              <div className="text-center mt-5">
                 <h5>Contact Information</h5>
                 <p>
                   If you prefer to contact us directly, please use the
