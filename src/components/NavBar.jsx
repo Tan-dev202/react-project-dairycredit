@@ -22,30 +22,6 @@ export default function NavBar({ darkMode, toggleDarkMode }) {
         >
           <div className="navbar-nav">
             <NavLink
-              to="/farmer-details"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              Farmers
-            </NavLink>
-            <NavLink
-              to="/credit-scores"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              Credit Scores
-            </NavLink>
-            <NavLink
-              to="/top-performers"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              Top Performers
-            </NavLink>
-            <NavLink
               to="/about"
               className={({ isActive }) =>
                 isActive ? "nav-link active" : "nav-link"
