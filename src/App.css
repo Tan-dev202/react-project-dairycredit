@@ -9,8 +9,270 @@ html {
   scroll-behavior: smooth;
   font-family: "Delius", sans-serif;
   background-color: #FCFBF4;
+  transition: all 0.3s ease;
 }
 
+:root {
+  --primary-color: #198754;  /* Bootstrap's success color */
+  --dark-bg: #222;
+  --dark-text: #eee;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.dark-mode .card,
+.dark-mode .table,
+.dark-mode .accordion-item {
+  background-color: #333;
+  color: var(--dark-text);
+  border-color: #444;
+}
+
+.dark-mode .accordion-button {
+  background-color: #444;
+  color: var(--dark-text);
+}
+
+.dark-mode .accordion-button::after {
+  filter: invert(1);
+}
+
+.navbar {
+  border-bottom: 2px black;
+}
+
+.logo {
+  height: 32px;
+  width: 32px;
+  margin-right: 8px;
+}
+
+/* Table styles */
+.table-responsive {
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}
+
+.table td, .table th {
+  padding: 12px 15px;
+  vertical-align: top;
+}
+
+/* Form styling */
+.form-control {
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* Button styling */
+.btn {
+  padding: 8px 20px;
+  transition: all 0.3s;
+}
+
+.delete-btn {
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+}
+
+/* Card and container styling */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Search input styling */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding-left: 20px;
+  border: 1px solid #ddd;
+  box-shadow: var(--shadow);
+}
+
+/* Top performers styling */
+.top-performers {
+  background-color: rgba(25, 135, 84, 0.05);
+  padding: 30px 0;
+  border-radius: 10px;
+}
+
+.top-performers-details h5 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.top-performers .table {
+  background-color: white;
+}
+
+.dark-mode .top-performers {
+  background-color: rgba(25, 135, 84, 0.2);
+}
+
+.dark-mode .top-performers .table {
+  background-color: #333;
+}
+
+/* About page */
+.about {
+  min-height: calc(100vh - 55px);
+}
+
+/* Contact page styling */
+.contact {
+  min-height: calc(100vh - 55px);
+}
+
+.contact-info i {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+/* FAQs styling */
+.faqs {
+  min-height: calc(100vh - 55px);
+}
+.accordion-item {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--primary-color);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* Footer styling */
+.footer {
+  margin-top: 40px !important;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+/* Search input styling */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  border-radius: 20px;
+  padding-left: 20px;
+  border: 1px solid #ddd;
+  box-shadow: var(--shadow);
+}
+
+/* Top performers styling */
+.top-performers {
+  background-color: rgba(25, 135, 84, 0.05);
+  padding: 30px 0;
+  border-radius: 10px;
+}
+
+.top-performers-details h5 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.top-performers .table {
+  background-color: white;
+}
+
+.dark-mode .top-performers {
+  background-color: rgba(25, 135, 84, 0.2);
+}
+
+.dark-mode .top-performers .table {
+  background-color: #333;
+}
+
+/* Contact page styling */
+.contact-info i {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+/* FAQs styling */
+.accordion-item {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--primary-color);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* Footer styling */
+.footer {
+  margin-top: 40px !important;
+  padding: 20px 0;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  font-size: 1.2rem;
+}
 .App {
   text-align: center;
 }
