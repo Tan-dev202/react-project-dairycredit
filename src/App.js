@@ -1,16 +1,11 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { useState, useEffect } from "react";
-import NavBar from "./components/NavBar";
 import FarmerForm from "./components/FarmerForm";
 import FarmersTable from "./components/FarmersTable";
 import TopPerformers from "./components/TopPerformers";
-import About from "./components/About";
-import Faqs from "./components/Faqs";
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
   const [farmers, setFarmers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -72,9 +67,9 @@ export default function App() {
     }
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  // const toggleDarkMode = () => {
+  //   setDarkMode(!darkMode);
+  // };
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -87,51 +82,55 @@ export default function App() {
   );
 
   return (
-    <div className={darkMode ? "dark-mode" : ""}>
-      <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <div className="container mt-5 mb-5">
-        <h1 className="mb-4">
+    <div>
+      <div className="container my-5">
+        <h1 className="text-center my-5">
           Transform Your Dairy Farm's Potential into Financial Opportunity
         </h1>
-        <p className="mb-3">
+        <p className="text-center my-4">
           <strong>Your production data is worth more than you think.</strong>
         </p>
-        <p className="mb-3">
+        <p className="text-center my-4">
           Every liter of milk, every feed purchase, every healthy cow in your
           herd tells a story about your farm's financial health. DairyCredit
           helps you turn that story into opportunities.
         </p>
-        <h4>Break Free from Traditional Credit Barriers</h4>
-        <p className="mb-3">
+        <h4 className="text-center my-5">
+          Break Free from Traditional Credit Barriers
+        </h4>
+        <p className="text-center my-3">
           Without credit history or collateral, getting financing for your dairy
           operation can seem impossible. DairyCredit changes the game by showing
           lenders what really matters: your farm's actual performance and
           potential.
         </p>
-        <h4>How It Works:</h4>
-        <ol>
-          <li>
-            <strong>Record your farm activities</strong>- Track milk production,
-            input costs, and assets with our simple dashboard
-          </li>
-          <li>
-            <strong>Watch your credit score develop</strong>- See how your farm
-            management translates to creditworthiness
-          </li>
-          <li>
-            <strong>Connect with informed lenders</strong>- Access financing
-            options from partners who understand dairy farming
-          </li>
-        </ol>
+        <div className="d-grid justify-content-center my-4">
+          <h4 className="text-center my-4">How It Works:</h4>
+          <ol className="my-8">
+            <li>
+              <strong>Record your farm activities</strong>- Track milk
+              production, input costs, and assets with our simple dashboard
+            </li>
+            <li>
+              <strong>Watch your credit score develop</strong>- See how your
+              farm management translates to creditworthiness
+            </li>
+            <li>
+              <strong>Connect with informed lenders</strong>- Access financing
+              options from partners who understand dairy farming
+            </li>
+          </ol>
+        </div>
+        <h4 className="text-center">Credit Scores</h4>
         <div className="row">
-          <div id="farmer-details-form" className="col-md-3 mb-4">
+          <div id="farmer-details-form" className="col-sm-3 mb-4">
             <FarmerForm
               addOrUpdateFarmer={addOrUpdateFarmer}
               farmerToEdit={farmerToEdit}
               setFarmerToEdit={setFarmerToEdit}
             />
           </div>
-          <div id="credit-scores-table" className="col-md-9 mt-3">
+          <div id="credit-scores-table" className="col-lg-9 mt-4">
             <div className="card">
               <div className="card-body">
                 <FarmersTable
@@ -147,7 +146,6 @@ export default function App() {
           </div>
         </div>
         <TopPerformers farmers={farmers} />
-        <About />
         <div className="mt-5 mb-5">
           <h4 className="mb-3 text-center">Why Dairy Farmers Trust Us:</h4>
           <p className="mb-3 text-center">
@@ -159,7 +157,6 @@ export default function App() {
             - <em>Sarah M., Dairy Farmer</em>
           </p>
         </div>
-        <Faqs />
         <div className="mt-5 mb-5">
           <h4 className="mb-3 text-center">Get Started Today</h4>
           <p className="mb-3 text-center">
@@ -167,7 +164,9 @@ export default function App() {
             using DairyCredit App for free.
           </p>
           <p className="mb-3 text-center">
-            <em>Empowering dairy producers through smarter financial tools.</em>
+            <em>
+              - Empowering Dairy Producers Through Smarter Financial Tools -
+            </em>
           </p>
         </div>
       </div>
