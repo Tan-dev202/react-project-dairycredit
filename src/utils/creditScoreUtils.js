@@ -9,7 +9,6 @@ export function calculateCreditScore(
   const averageRatio = (costToSalesRatio + liabilitiesToAssetsRatio) / 2;
   let creditScore = 100 - averageRatio;
   let scoreClass;
-
   if (averageRatio < 49) {
     scoreClass = "credit-score-high";
   } else if (averageRatio >= 50 && averageRatio < 70) {
@@ -17,6 +16,11 @@ export function calculateCreditScore(
   } else {
     scoreClass = "credit-score-low";
   }
-
-  return { creditScore: creditScore.toFixed(2), scoreClass, averageRatio };
+  return {
+    creditScore: creditScore.toFixed(2),
+    scoreClass,
+    averageRatio,
+    costToSalesRatio,
+    liabilitiesToAssetsRatio,
+  };
 }
