@@ -121,17 +121,17 @@ export default function App() {
             </li>
           </ol>
         </div>
-        <h4 className="text-center">Credit Scores</h4>
-        <div className="row">
-          <div id="farmer-details-form" className="col-sm-3 mb-4">
-            <FarmerForm
-              addOrUpdateFarmer={addOrUpdateFarmer}
-              farmerToEdit={farmerToEdit}
-              setFarmerToEdit={setFarmerToEdit}
-            />
-          </div>
-          <div id="credit-scores-table" className="col-lg-9 mt-4">
-            <div className="card">
+        <div className="card">
+          <h4 className="text-center mt-3">Credit Scores</h4>
+          <div className="row mx-1 my-0">
+            <div id="farmer-details-form" className="col-md-2 mb-4">
+              <FarmerForm
+                addOrUpdateFarmer={addOrUpdateFarmer}
+                farmerToEdit={farmerToEdit}
+                setFarmerToEdit={setFarmerToEdit}
+              />
+            </div>
+            <div id="credit-scores-table" className="col-md-10 mt-4">
               <div className="card-body">
                 <FarmersTable
                   farmers={filteredFarmers}
