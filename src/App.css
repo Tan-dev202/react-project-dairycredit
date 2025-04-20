@@ -13,7 +13,7 @@ html {
 }
 
 :root {
-  --primary-color: #198754;  /* Bootstrap's success color */
+  --primary-color: #198754;
   --dark-bg: #222;
   --dark-text: #eee;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -51,11 +51,10 @@ html {
   margin-right: 8px;
 }
 
-/* Table styles */
+/* Table */
 .table-responsive {
   box-shadow: var(--shadow);
   border-radius: 8px;
-  overflow: hidden;
 }
 
 .table {
@@ -73,7 +72,7 @@ html {
   vertical-align: top;
 }
 
-/* Form styling */
+/* Form */
 .form-control {
   padding: 10px 15px;
   border-radius: 8px;
@@ -86,7 +85,7 @@ html {
   box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
 }
 
-/* Button styling */
+/* Button */
 .btn {
   padding: 8px 20px;
   transition: all 0.3s;
@@ -99,12 +98,13 @@ html {
   font-size: 16px;
 }
 
-/* Card and container styling */
+/* Card and container */
 .card {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: all 0.3s;
+  background-color: #FCFBF4;
 }
 
 .card:hover {
@@ -112,7 +112,7 @@ html {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Search input styling */
+/* Search input */
 .search-container {
   margin-bottom: 20px;
 }
@@ -123,7 +123,7 @@ html {
   box-shadow: var(--shadow);
 }
 
-/* Top performers styling */
+/* Top performers */
 .top-performers {
   background-color: rgba(25, 135, 84, 0.05);
   padding: 30px 0;
@@ -147,12 +147,32 @@ html {
   background-color: #333;
 }
 
-/* About page */
+/* About */
 .about {
   min-height: calc(100vh - 55px);
 }
 
-/* Contact page styling */
+/* FAQs */
+.accordion-item {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--primary-color);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.faqs {
+  min-height: calc(100vh - 55px);
+}
+
+/* Contact */
 .contact {
   min-height: calc(100vh - 55px);
 }
@@ -162,33 +182,14 @@ html {
   margin-right: 10px;
 }
 
-/* FAQs styling */
-.faqs {
-  min-height: calc(100vh - 55px);
-}
-.accordion-item {
-  margin-bottom: 12px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: rgba(25, 135, 84, 0.1);
-  color: var(--primary-color);
-}
-
-.accordion-button:focus {
-  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
-}
-
-/* Footer styling */
+/* Footer */
 .footer {
   margin-top: 40px !important;
   padding: 20px 0;
   width: 100%;
 }
 
-/* Dark mode toggle button */
+/* Dark mode button */
 #dark-mode-toggle {
   width: 40px;
   height: 40px;
@@ -199,80 +200,6 @@ html {
   font-size: 1.2rem;
 }
 
-/* Search input styling */
-.search-container {
-  margin-bottom: 20px;
-}
-
-.search-input {
-  border-radius: 20px;
-  padding-left: 20px;
-  border: 1px solid #ddd;
-  box-shadow: var(--shadow);
-}
-
-/* Top performers styling */
-.top-performers {
-  background-color: rgba(25, 135, 84, 0.05);
-  padding: 30px 0;
-  border-radius: 10px;
-}
-
-.top-performers-details h5 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
-}
-
-.top-performers .table {
-  background-color: white;
-}
-
-.dark-mode .top-performers {
-  background-color: rgba(25, 135, 84, 0.2);
-}
-
-.dark-mode .top-performers .table {
-  background-color: #333;
-}
-
-/* Contact page styling */
-.contact-info i {
-  color: var(--primary-color);
-  margin-right: 10px;
-}
-
-/* FAQs styling */
-.accordion-item {
-  margin-bottom: 12px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: rgba(25, 135, 84, 0.1);
-  color: var(--primary-color);
-}
-
-.accordion-button:focus {
-  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
-}
-
-/* Footer styling */
-.footer {
-  margin-top: 40px !important;
-  padding: 20px 0;
-}
-
-/* Dark mode toggle button */
-#dark-mode-toggle {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  font-size: 1.2rem;
-}
 .App {
   text-align: center;
 }
