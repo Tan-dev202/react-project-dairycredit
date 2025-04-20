@@ -10,7 +10,7 @@ export default function FarmersTable({ farmers, isLoading, deleteFarmer, editFar
         <input
           id="farmer-search"
           type="search"
-          className="form-control search-input rounded"
+          className="form-control search-input rounded mx-2"
           style={{ width: "300px" }}
           placeholder="Search by name or location"
           value={searchTerm}
