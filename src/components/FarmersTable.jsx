@@ -27,7 +27,7 @@ export default function FarmersTable({ farmers, isLoading, deleteFarmer, editFar
             <th>Cost/Sales Ratio</th>
             <th>Liabilities/Assets Ratio</th>
             <th>Average Ratio</th>
-            <th>Credit Score (points)</th>
+            <th>Credit Score</th>
             <th>Actions</th>
           </tr>
         </thead>

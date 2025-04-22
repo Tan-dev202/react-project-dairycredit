@@ -87,7 +87,7 @@ export default function TopPerformers({ farmers }) {
                       <th>Rank</th>
                       <th>Name</th>
                       <th>Location</th>
-                      <th>Credit Score (points)</th>
+                      <th>Credit Score</th>
                       <th>Monthly Sales</th>
                     </tr>
                   </thead>
@@ -98,7 +98,7 @@ export default function TopPerformers({ farmers }) {
                         <td>{farmer.name}</td>
                         <td>{farmer.location}</td>
                         <td className={farmer.scoreClass}>
-                          {farmer.creditScore.toFixed(2)}
+                          {farmer.creditScore.toFixed(2)}%
                         </td>
                         <td>Ksh. {farmer.monthlySales}</td>
                       </tr>

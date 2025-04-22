@@ -22,8 +22,8 @@ export function calculateCreditScore(
   return {
     creditScore: creditScore.toFixed(2),
     scoreClass,
-    averageRatio: averageRatio.toFixed(2),
-    costToSalesRatio: costToSalesRatio.toFixed(2),
-    liabilitiesToAssetsRatio: liabilitiesToAssetsRatio.toFixed(2),
+    averageRatio,
+    costToSalesRatio,
+    liabilitiesToAssetsRatio,
   };
 }

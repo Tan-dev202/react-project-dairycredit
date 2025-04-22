@@ -23,7 +23,7 @@ export default function FarmerRow({ farmer, deleteFarmer, editFarmer }) {
       <td>{costToSalesRatio.toFixed(2)}%</td>
       <td>{liabilitiesToAssetsRatio.toFixed(2)}%</td>
       <td>{averageRatio.toFixed(2)}%</td>
-      <td className={scoreClass}>{creditScore}</td>
+      <td className={scoreClass}>{creditScore}%</td>
       <td>
         <div className="btn-group btn-group-sm gap-1">
           <button
