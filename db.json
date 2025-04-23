@@ -71,6 +71,15 @@
       "monthlyCosts": 35000,
       "farmAssetValue": 95000,
       "currentLiabilities": 50000
+    },
+    {
+      "id": "7afb",
+      "name": "Mwangi",
+      "location": "Kikuyu",
+      "monthlySales": 50000,
+      "monthlyCosts": 20000,
+      "farmAssetValue": 150000,
+      "currentLiabilities": 75000
     }
   ]
 }

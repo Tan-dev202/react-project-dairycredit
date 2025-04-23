@@ -8,7 +8,7 @@ export default function Faqs() {
         <div class="accordion-item">
           <h6 class="accordion-header" id="panelsStayOpen-headingOne">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseOne"
@@ -20,7 +20,7 @@ export default function Faqs() {
           </h6>
           <div
             id="panelsStayOpen-collapseOne"
-            class="accordion-collapse collapse"
+            class="accordion-collapse collapse show"
             aria-labelledby="panelsStayOpen-headingOne"
           >
             <div class="accordion-body">
@@ -36,7 +36,7 @@ export default function Faqs() {
         <div class="accordion-item">
           <h6 class="accordion-header" id="panelsStayOpen-headingTwo">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseTwo"
@@ -48,7 +48,7 @@ export default function Faqs() {
           </h6>
           <div
             id="panelsStayOpen-collapseTwo"
-            class="accordion-collapse collapse"
+            class="accordion-collapse collapse show"
             aria-labelledby="panelsStayOpen-headingTwo"
           >
             <div class="accordion-body">
@@ -60,7 +60,7 @@ export default function Faqs() {
         <div class="accordion-item">
           <h6 class="accordion-header" id="panelsStayOpen-headingThree">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseThree"
@@ -72,7 +72,7 @@ export default function Faqs() {
           </h6>
           <div
             id="panelsStayOpen-collapseThree"
-            class="accordion-collapse collapse"
+            class="accordion-collapse collapse show"
             aria-labelledby="panelsStayOpen-headingThree"
           >
             <div class="accordion-body">
@@ -86,7 +86,7 @@ export default function Faqs() {
         <div class="accordion-item">
           <h6 class="accordion-header" id="panelsStayOpen-headingFour">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseFour"
@@ -98,7 +98,7 @@ export default function Faqs() {
           </h6>
           <div
             id="panelsStayOpen-collapseFour"
-            class="accordion-collapse collapse"
+            class="accordion-collapse collapse show"
             aria-labelledby="panelsStayOpen-headingFour"
           >
             <div class="accordion-body">

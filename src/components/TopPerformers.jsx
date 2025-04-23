@@ -57,7 +57,7 @@ export default function TopPerformers({ farmers }) {
                     fill="#8884d8"
                     dataKey="value"
                     nameKey="name"
-                    label={({ name, value }) => `${name}: ${value} pts`}
+                    label={({ name, value }) => `${name}: ${value} %`}
                   >
                     {pieData.map((entry, index) => (
                       <Cell
@@ -68,7 +68,7 @@ export default function TopPerformers({ farmers }) {
                   </Pie>
                   <Tooltip
                     formatter={(value, name, props) => [
-                      `${value} points`,
+                      `${value} percent`,
                       props.payload.name,
                     ]}
                     labelFormatter={() => "Credit Score"}

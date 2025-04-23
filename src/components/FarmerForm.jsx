@@ -67,8 +67,8 @@ export default function FarmerForm({
 
   return (
     <div className="details form-group mt-5 justify-content-center">
-      <h5 id="Farmers Data" className="text-center mb-3">
-        Farmer Details
+      <h5 id="Farmers Data" className="text-left mb-3">
+        Enter Details
       </h5>
       <form id="farmer-form" onSubmit={handleSubmit}>
         <input
@@ -111,7 +111,7 @@ export default function FarmerForm({
           type="number"
           id="farmAssetValue"
           className="form-control my2"
-          placeholder="Enter asset value"
+          placeholder="Enter farm asset value"
           value={formData.farmAssetValue}
           onChange={handleChange}
           required
@@ -120,7 +120,7 @@ export default function FarmerForm({
           type="number"
           id="currentLiabilities"
           className="form-control my-2"
-          placeholder="Enter liabilities"
+          placeholder="Enter current liabilities"
           value={formData.currentLiabilities}
           onChange={handleChange}
           required

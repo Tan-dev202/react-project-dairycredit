@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact container my-5">
+    <section className="contact container mt-5">
       <div className="row">
         <div className="col-lg-8 mx-auto">
           <h4 className="text-center mb-4">Contact Us</h4>

@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import FarmerForm from "./components/FarmerForm";
 import FarmersTable from "./components/FarmersTable";
 import TopPerformers from "./components/TopPerformers";
@@ -50,10 +50,12 @@ export default function App() {
     } catch (error) {
       console.error("Error adding/updating farmer:", error);
     }
+    scrollToTable();
   };
 
   const handleEditFarmer = (farmer) => {
     setFarmerToEdit(farmer);
+    scrollToForm();
   };
 
   const deleteFarmer = async (farmerId) => {
@@ -67,10 +69,6 @@ export default function App() {
     }
   };
 
-  // const toggleDarkMode = () => {
-  //   setDarkMode(!darkMode);
-  // };
-
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
@@ -81,20 +79,45 @@ export default function App() {
       farmer.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const formRef = useRef(null);
+  const tableRef = useRef(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToTable = () => {
+    tableRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
+      <div className="hero-section mb-5">
+        <div className="hero-overlay container">
+          <h1 className="mb-4">
+            Transform Your Dairy Farm's Potential into Financial Opportunity
+          </h1>
+          <p className="mb-3">
+            <strong>Your production data is worth more than you think.</strong>
+          </p>
+          <div className="row justify-content-center">
+            <p className="col-md-8 m-5 text-center">
+              Every liter of milk, every feed purchase, every healthy cow in
+              your herd tells a story about your farm's financial health.
+              DairyCredit helps you turn that story into opportunities.
+            </p>
+          </div>
+          <div className="d-flex justify-content-center gap-3 mt-3">
+            <button className="btn btn-primary" onClick={scrollToForm}>
+              Farmer Records
+            </button>
+            <button className="btn btn-outline-light" onClick={scrollToTable}>
+              Credit Scores
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="container my-5">
-        <h1 className="text-center my-5">
-          Transform Your Dairy Farm's Potential into Financial Opportunity
-        </h1>
-        <p className="text-center my-4">
-          <strong>Your production data is worth more than you think.</strong>
-        </p>
-        <p className="text-center my-4">
-          Every liter of milk, every feed purchase, every healthy cow in your
-          herd tells a story about your farm's financial health. DairyCredit
-          helps you turn that story into opportunities.
-        </p>
         <h4 className="text-center my-5">
           Break Free from Traditional Credit Barriers
         </h4>
@@ -106,7 +129,7 @@ export default function App() {
         </p>
         <div className="d-grid justify-content-center my-4">
           <h4 className="text-center my-4">How It Works:</h4>
-          <ol className="my-8">
+          <ul className="my-8">
             <li>
               <strong>Record your farm activities</strong>- Track milk
               production, input costs, and assets with our simple dashboard
@@ -119,29 +142,38 @@ export default function App() {
               <strong>Connect with informed lenders</strong>- Access financing
               options from partners who understand dairy farming
             </li>
-          </ol>
+          </ul>
         </div>
-        <div className="card">
-          <h4 className="text-center mt-3">Credit Scores</h4>
-          <div className="row mx-1 my-0">
-            <div id="farmer-details-form" className="col-md-2 mb-4">
-              <FarmerForm
-                addOrUpdateFarmer={addOrUpdateFarmer}
-                farmerToEdit={farmerToEdit}
-                setFarmerToEdit={setFarmerToEdit}
+        <div
+          id="farmer-details-form"
+          className="card mt-5 d-flex justify-content-center align-items-center"
+          ref={formRef}
+        >
+          <div className="col-md-6 my-4">
+            <h4 className="text-center mt-3">Farmer Records</h4>
+            <FarmerForm
+              addOrUpdateFarmer={addOrUpdateFarmer}
+              farmerToEdit={farmerToEdit}
+              setFarmerToEdit={setFarmerToEdit}
+            />
+          </div>
+        </div>
+        <div
+          id="credit-scores-table"
+          className="card mt-5 d-flex justify-content-center align-items-center"
+          ref={tableRef}
+        >
+          <h4 className="text-center mt-5">Credit Scores</h4>
+          <div className="col-md-10 mt-2">
+            <div className="card-body">
+              <FarmersTable
+                farmers={filteredFarmers}
+                isLoading={isLoading}
+                editFarmer={handleEditFarmer}
+                deleteFarmer={deleteFarmer}
+                searchTerm={searchTerm}
+                handleSearch={handleSearch}
               />
-            </div>
-            <div id="credit-scores-table" className="col-md-10 mt-4">
-              <div className="card-body">
-                <FarmersTable
-                  farmers={filteredFarmers}
-                  isLoading={isLoading}
-                  editFarmer={handleEditFarmer}
-                  deleteFarmer={deleteFarmer}
-                  searchTerm={searchTerm}
-                  handleSearch={handleSearch}
-                />
-              </div>
             </div>
           </div>
         </div>

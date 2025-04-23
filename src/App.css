@@ -51,6 +51,27 @@ html {
   margin-right: 8px;
 }
 
+/* Hero */
+.hero-section {
+  position: relative;
+  background-image: url("./assets/hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
 /* Table */
 .table-responsive {
   box-shadow: var(--shadow);
@@ -149,7 +170,8 @@ html {
 
 /* About */
 .about {
-  min-height: calc(100vh - 55px);
+  min-height: 100vh;
+  font-size: larger;
 }
 
 /* FAQs */
@@ -157,6 +179,7 @@ html {
   margin-bottom: 12px;
   border-radius: 8px;
   overflow: hidden;
+  font-size: large;
 }
 
 .accordion-button:not(.collapsed) {
@@ -169,12 +192,12 @@ html {
 }
 
 .faqs {
-  min-height: calc(100vh - 55px);
+  min-height: 100vh;
 }
 
 /* Contact */
 .contact {
-  min-height: calc(100vh - 55px);
+  min-height: 100vh;
 }
 
 .contact-info i {
