@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function FarmerForm({
   addOrUpdateFarmer,
@@ -14,6 +14,20 @@ export default function FarmerForm({
     currentLiabilities: "",
   });
 
+  const resetForm = useCallback(() => {
+    setFormData({
+      name: "",
+      location: "",
+      monthlySales: "",
+      monthlyCosts: "",
+      farmAssetValue: "",
+      currentLiabilities: "",
+    });
+    if (setFarmerToEdit) {
+      setFarmerToEdit(null);
+    }
+  }, [setFarmerToEdit]);
+
   useEffect(() => {
     if (farmerToEdit) {
       setFormData({
@@ -24,8 +38,10 @@ export default function FarmerForm({
         farmAssetValue: farmerToEdit.farmAssetValue,
         currentLiabilities: farmerToEdit.currentLiabilities,
       });
+    } else {
+      resetForm();
     }
-  }, [farmerToEdit]);
+  }, [farmerToEdit, resetForm]);
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -34,7 +50,6 @@ export default function FarmerForm({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const newFarmer = {
       name: formData.name.trim(),
       location: formData.location.trim(),
@@ -46,29 +61,13 @@ export default function FarmerForm({
 
     const farmerId = farmerToEdit ? farmerToEdit.id : null;
     addOrUpdateFarmer(newFarmer, farmerId);
-
     resetForm();
-  };
-
-  const resetForm = () => {
-    setFormData({
-      name: "",
-      location: "",
-      monthlySales: "",
-      monthlyCosts: "",
-      farmAssetValue: "",
-      currentLiabilities: "",
-    });
-
-    if (setFarmerToEdit) {
-      setFarmerToEdit(null);
-    }
   };
 
   return (
     <div className="details form-group mt-5 justify-content-center">
-      <h5 id="Farmers Data" className="text-left mb-3">
-        Enter Details
+      <h5 className="text-left mb-3">
+        {farmerToEdit ? "Update Farmer Details" : "Enter Details"}
       </h5>
       <form id="farmer-form" onSubmit={handleSubmit}>
         <input
@@ -110,7 +109,7 @@ export default function FarmerForm({
         <input
           type="number"
           id="farmAssetValue"
-          className="form-control my2"
+          className="form-control my-2"
           placeholder="Enter farm asset value"
           value={formData.farmAssetValue}
           onChange={handleChange}
@@ -126,11 +125,8 @@ export default function FarmerForm({
           required
         />
         <div className="d-grid mx-auto">
-          <button
-            type="submit"
-            className="btn bg-dark text-white rounded my-2"
-          >
-            {farmerToEdit ? "Save" : "Add"}
+          <button type="submit" className="btn bg-dark text-white rounded my-2">
+            {farmerToEdit ? "Update" : "Add"}
           </button>
           {farmerToEdit && (
             <button

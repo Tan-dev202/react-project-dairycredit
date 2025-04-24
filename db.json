@@ -80,6 +80,15 @@
       "monthlyCosts": 20000,
       "farmAssetValue": 150000,
       "currentLiabilities": 75000
+    },
+    {
+      "id": "1442",
+      "name": "Paul",
+      "location": "Kikuyu",
+      "monthlySales": 50000,
+      "monthlyCosts": 25000,
+      "farmAssetValue": 150000,
+      "currentLiabilities": 65000
     }
   ]
 }

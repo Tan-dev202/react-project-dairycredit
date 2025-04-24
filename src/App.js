@@ -45,17 +45,11 @@ export default function App() {
         });
       }
       await response.json();
-      fetchFarmers();
-      setFarmerToEdit(null);
+      fetchFarmers(); // Refresh the farmers list
+      setFarmerToEdit(null); // Clear the edit state
     } catch (error) {
       console.error("Error adding/updating farmer:", error);
     }
-    scrollToTable();
-  };
-
-  const handleEditFarmer = (farmer) => {
-    setFarmerToEdit(farmer);
-    scrollToForm();
   };
 
   const deleteFarmer = async (farmerId) => {
@@ -169,7 +163,7 @@ export default function App() {
               <FarmersTable
                 farmers={filteredFarmers}
                 isLoading={isLoading}
-                editFarmer={handleEditFarmer}
+                editFarmer={addOrUpdateFarmer}
                 deleteFarmer={deleteFarmer}
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}

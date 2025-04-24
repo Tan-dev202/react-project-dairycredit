@@ -1,11 +1,34 @@
+import { useState } from "react";
 import FarmerRow from "./FarmerRow";
-export default function FarmersTable({ farmers, isLoading, deleteFarmer, editFarmer, searchTerm, handleSearch }) {
+import FarmerModal from "./FarmerModal";
+
+export default function FarmersTable({
+  farmers,
+  isLoading,
+  deleteFarmer,
+  editFarmer,
+  searchTerm,
+  handleSearch,
+}) {
+  const [selectedFarmer, setSelectedFarmer] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleRowClick = (farmer) => {
+    setSelectedFarmer(farmer);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedFarmer(null);
+  };
+
   if (isLoading) {
     return <div className="text-center mt-4">Loading farmer data...</div>;
   }
 
   return (
-    <div className="table-responsive mt-0">
+    <div className="farmers-table-container">
       <div className="search-container d-flex my-4">
         <input
           id="farmer-search"
@@ -17,39 +40,45 @@ export default function FarmersTable({ farmers, isLoading, deleteFarmer, editFar
           onChange={(event) => handleSearch(event.target.value)}
         />
       </div>
-      <table id="farmers-table" className="table bg-light table-responsive table-hover">
-        <thead>
-          <tr className="align-top">
-            <th>Name</th>
-            <th>Location</th>
-            <th>Monthly Sales</th>
-            <th>Monthly Costs</th>
-            <th>Cost/Sales Ratio</th>
-            <th>Liabilities/Assets Ratio</th>
-            <th>Average Ratio</th>
-            <th>Credit Score</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="farmers-tbody">
-          {farmers.length > 0 ? (
-            farmers.map((farmer) => (
-              <FarmerRow
-                key={farmer.id}
-                farmer={farmer}
-                editFarmer={editFarmer}
-                deleteFarmer={deleteFarmer}
-              />
-            ))
-          ) : (
+
+      <div className="table-responsive">
+        <table id="farmers-table" className="table bg-light table-hover">
+          <thead>
             <tr>
-              <td colSpan="9" className="text-center">
-                No farmers found
-              </td>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Cost/Sales Ratio</th>
+              <th>Liabilities/Assets Ratio</th>
+              <th>Credit Score</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody id="farmers-tbody">
+            {farmers.length > 0 ? (
+              farmers.map((farmer) => (
+                <FarmerRow
+                  key={farmer.id}
+                  farmer={farmer}
+                  onClick={() => handleRowClick(farmer)}
+                />
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="text-center">
+                  No farmers found
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+      {showModal && selectedFarmer && (
+        <FarmerModal
+          farmer={selectedFarmer}
+          onClose={handleCloseModal}
+          onDelete={deleteFarmer}
+          onEdit={editFarmer}
+        />
+      )}
     </div>
   );
 }

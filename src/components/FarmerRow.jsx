@@ -1,10 +1,9 @@
 import { calculateCreditScore } from "../utils/creditScoreUtils";
 
-export default function FarmerRow({ farmer, deleteFarmer, editFarmer }) {
+export default function FarmerRow({ farmer, onClick }) {
   const {
     creditScore,
     scoreClass,
-    averageRatio,
     costToSalesRatio,
     liabilitiesToAssetsRatio,
   } = calculateCreditScore(
@@ -15,31 +14,17 @@ export default function FarmerRow({ farmer, deleteFarmer, editFarmer }) {
   );
 
   return (
-    <tr data-id={farmer.id}>
+    <tr
+      data-id={farmer.id}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
+      className="farmer-row"
+    >
       <td>{farmer.name}</td>
       <td>{farmer.location}</td>
-      <td>{farmer.monthlySales.toLocaleString()}</td>
-      <td>{farmer.monthlyCosts.toLocaleString()}</td>
       <td>{costToSalesRatio.toFixed(2)}%</td>
       <td>{liabilitiesToAssetsRatio.toFixed(2)}%</td>
-      <td>{averageRatio.toFixed(2)}%</td>
       <td className={scoreClass}>{creditScore}%</td>
-      <td>
-        <div className="btn-group btn-group-sm gap-1">
-          <button
-            className="edit-btn btn btn-sm btn-primary rounded"
-            onClick={() => editFarmer(farmer)}
-          >
-            Edit
-          </button>
-          <button
-            className="delete-btn btn btn-sm btn-danger rounded"
-            onClick={() => deleteFarmer(farmer.id)}
-          >
-            Delete
-          </button>
-        </div>
-      </td>
     </tr>
   );
 }
